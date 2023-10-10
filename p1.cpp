@@ -38,7 +38,7 @@ void dif(int a,int b)
 {
     if(a>b)
     {
-        cout<<a;
+        cout<<a-b;
     }
     if(a==b)
     {
