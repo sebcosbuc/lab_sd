@@ -100,7 +100,7 @@ void adaugare_la_inceput()
         aux=new nod;
         aux->info=informatie;
         aux->next=NULL;
-        primul->next=aux;
+        primul=aux;
     }
 }
 
@@ -110,5 +110,12 @@ int main()
     creare_lista();
     afisare_lista(); cout<<"\n";
     adaugare_la_sfarsit();
+    cout<<"\n\n dupa adaugare la sfarsit lista devine";
+    afisare_lista();
+    cout<<"\n";
+    adaugare_la_inceput();
+    cout<<"\n\n dupa adaugare la inceput lista devine";
+    afisare_lista();
+    cout<<"\n";
     return 0;
 }
