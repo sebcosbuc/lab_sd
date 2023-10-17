@@ -99,7 +99,7 @@ void adaugare_la_inceput()
         nod *aux;
         aux=new nod;
         aux->info=informatie;
-        aux->next=NULL;
+        aux->next=primul;
         primul=aux;
     }
 }
