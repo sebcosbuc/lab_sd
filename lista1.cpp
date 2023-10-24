@@ -104,6 +104,88 @@ void adaugare_la_inceput()
     }
 }
 
+void adaugare_pe_pozitie_data()
+{
+    int informatie,pozitie;
+    cout<<"\n --------\n";
+    cout<<"\nadaugare pe pozitie data \n\n";
+    cout<<"pozitia pe care vreti sa inserati informatia";
+    cin>>pozitie;
+    cout<<"\n ce informatie doriti sa adaugati? ";
+    cin>>informatie;
+    if(primul==NULL)
+    {
+        cout<<"\n lista este nula. Nu am adaugat informatia";
+    }
+    else
+    {
+        nod *aux, *curent;
+        curent=primul;
+        int i=1, ok=0;
+        while(curent)
+        {
+            if(i==pozitie-1)
+            {
+                aux=new nod;
+                aux->info=informatie;
+                aux->next=curent->next;
+                curent->next=aux;
+                ok=1;
+                break;
+            }
+            else
+            {
+                i++;
+                curent=curent->next;
+            }
+        }
+        if(ok==0)
+            cout<<"lista are mai putine elemente decat pozitia data. informatia nu a fost adaugata";
+
+    }
+}
+
+void adaugare_dupa_valoare_data()
+{
+    int informatie,valoare;
+    cout<<"\n --------\n";
+    cout<<"\nadaugare pe pozitie data \n\n";
+    cout<<"pozitia pe care vreti sa inserati informatia";
+    cin>>valoare;
+    cout<<"\n ce informatie doriti sa adaugati? ";
+    cin>>informatie;
+    if(primul==NULL)
+    {
+        cout<<"\n lista este nula. Nu am adaugat informatia";
+    }
+    else
+    {
+        nod *aux, *curent;
+        curent=primul;
+        int i=1, ok=0;
+        while(curent)
+        {
+            if(i==valoare)
+            {
+                aux=new nod;
+                aux->info=informatie;
+                aux->next=curent->next;
+                curent->next=aux;
+                ok=1;
+                break;
+            }
+            else
+            {
+                i++;
+                curent=curent->next;
+            }
+        }
+        if(ok==0)
+            cout<<"in lista nu exista valoarea introdusa. informatia nu a fost adaugata";
+
+    }
+}
+
 int main()
 {
     int n;
@@ -115,6 +197,14 @@ int main()
     cout<<"\n";
     adaugare_la_inceput();
     cout<<"\n\n dupa adaugare la inceput lista devine";
+    afisare_lista();
+    cout<<"\n";
+    adaugare_pe_pozitie_data();
+    cout<<"\n\n dupa adaugare pe pozitia data lista devine";
+    afisare_lista();
+    cout<<"\n";
+    adaugare_dupa_valoare_data();
+    cout<<"\n\n dupa adaugare dupa valoarea data lista devine";
     afisare_lista();
     cout<<"\n";
     return 0;
