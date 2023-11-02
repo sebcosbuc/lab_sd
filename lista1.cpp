@@ -18,42 +18,42 @@ FILE f,g;
 void creare_lista()
 {
     nod *aux;
-    ifstream f("in.txt");
-    f>>n;
+    ifstream f("in.txt");//deschid pentru citire fisierul in.txt
+    f>>n;//citesc nr de elemente
     for(int i=0;i<n;i++)
     {
-        if(primul==NULL)
+        if(primul==NULL)//daca lista nu exista
         {
-            primul=new nod;
-            f>>primul->info;
-            primul->next=NULL;
-            ultimul=primul;
+            primul=new nod;//aloc memorie pentru primul element
+            f>>primul->info;//citesc informatia din fisier
+            primul->next=NULL;//fac legatura catre NULL (nu mai urmeaza nimic dupa primul)
+            ultimul=primul;//lista are un singur element, deci primul este si ultimul.
         }
-        else
+        else//daca lista exista deja
         {
-            aux=new nod;
-            f>>aux->info;
-            aux->next=NULL;
-            ultimul->next=aux;
-            ultimul=aux;
+            aux=new nod;//aloc memorie pentru un nod nou
+            f>>aux->info;//citesc informatia si o pun in nod
+            aux->next=NULL;//fac legatura catre NULL
+            ultimul->next=aux;//fac legatura de la ultimul nod al listei la noul nod
+            ultimul=aux;//actualizez pozitia ultimului nod
         }
     }
-    f.close();
+    f.close();//inchid fisierul in.txt
 }
 
 void afisare_lista()
 {
     nod *a;
-    a=primul;
+    a=primul;//ma plasez pe primul nod al listei
     if(a==NULL)
         cout<<"lista este vida";
     else
     {
         cout<<"elementele listei sunt:";
-        while (a)
+        while (a)//atat timp cat nu am ajuns la NULL
         {
-            cout<<a->info<<" ";
-            a=a->next;
+            cout<<a->info<<" ";//afisez informatia din nodul curent
+            a=a->next;//trec la urmatorul nod
         }
     }
 }
@@ -63,13 +63,13 @@ void adaugare_la_sfarsit()
     int informatie;
     cout<<"\n ----------\n";
     cout<<"adaugare la sfarsitul listei\n\n Ce informatie doriti sa adaugati la sfarsit?";
-    cin>>informatie;
-    if(primul==NULL)
+    cin>>informatie;//citesc informatia pe care o sa o adaug la sfarsit
+    if(primul==NULL)//daca lista este vida
     {
-        primul=new nod;
-        primul->info=informatie;
-        primul->next=NULL;
-        ultimul=primul;
+        primul=new nod;//aloc memorie pentru primul nod
+        primul->info=informatie;//pun informatia in nod
+        primul->next=NULL;//fac legatura catre NULL
+        ultimul=primul;//lista are un singur element, deci primul este si ultimul.
     }
     else
     {
