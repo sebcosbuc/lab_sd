@@ -161,22 +161,22 @@ void adaugare_dupa_valoare_data()
     else
     {
         nod *aux, *curent;
-        curent=primul;
+        curent=primul;//pozitionez nodul curent pe primul element al listei
         int ok=0;
-        while(curent)
+        while(curent)//atat timp cat mai exista elemente in lista
         {
-            if(curent->info==valoare)
+            if(curent->info==valoare)//daca am gasit valoarea cautata
             {
-                aux=new nod;
-                aux->info=informatie;
-                aux->next=curent->next;
-                curent->next=aux;
-                ok=1;
+                aux=new nod;//aloc spatiu de memorie noului nod
+                aux->info=informatie;//pun informatia in nod
+                aux->next=curent->next;//fac legatura catre nodul urmator
+                curent->next=aux;//fac legatura de la nodul curent la nodul nou adaugat
+                ok=1;//marchez faptul ca am adaugat nodul pe pozitia ceruta
                 break;
             }
-            else
+            else//daca nu am gasit valoarea cautata
             {
-                curent=curent->next;
+                curent=curent->next;//trec la nodul urmator
             }
         }
         if(ok==0)
@@ -193,9 +193,9 @@ void stergere_primul_nod()
     {
         cout<<"\nsterg primul nod din lista\n";
         nod *aux;
-        aux=primul;
-        primul=primul->next;
-        delete aux;
+        aux=primul;//memorez primului nod intr-o variabila auxiliara
+        primul=primul->next;//trec primul nod pe a doua pozitie
+        delete aux;//sterg primul nod memorat in aux
     }
 }
 
@@ -214,11 +214,11 @@ void stergere_ultimul_nod()
         {
             nod *curent;
             curent=primul;
-            while(curent->next!=ultimul)
+            while(curent->next!=ultimul)//ma deplasez pana la penultimul nod
                 curent=curent->next;
-            delete curent->next;
+            delete curent->next;//sterg ultimul nod
             curent->next=NULL;
-            ultimul=curent;
+            ultimul=curent;//penultimul nod devine ultimul
         }
     }
 }
@@ -240,7 +240,7 @@ void stergere_nod_de_pe_pozitia_data()
             stergere_primul_nod();
         else
         {
-            while (curent)
+            while (curent)//ma deplasez in lista
                 if(pozitie-1!=i)
             {
                 curent=curent->next;
@@ -289,9 +289,9 @@ void stergere_nod_cu_valoare_data()
             else
                 if(curent->next!=ultimul)
             {
-                aux=curent->next;
-                curent->next=curent->next->next;
-                delete aux;
+                aux=curent->next;//retin valoarea intr-o variabila auxiliara
+                curent->next=curent->next->next;//fac legatura peste nodul ce va fi sters
+                delete aux;//sterg nodul
                 ok=1;
                 break;
             }
@@ -305,7 +305,7 @@ void stergere_lista()
     if(primul==NULL)
         cout<<"lista nu exista";
     else
-        while(primul)
+        while(primul)//mai am inca elemente de sters
         if(primul!=ultimul)
             stergere_primul_nod();
         else
