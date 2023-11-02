@@ -87,20 +87,20 @@ void adaugare_la_inceput()
     cout<<"\n --------\n";
     cout<<"adaugare la inceputul listei\n\n Ce informatie doriti sa adaugati la inceput?";
     cin>>informatie;
-    if(primul==NULL)
+    if(primul==NULL)//daca lista este vida
     {
-        primul=new nod;
-        primul->info=informatie;
-        primul->next=NULL;
-        ultimul=primul;
+        primul=new nod;//aloc memorie pentru primul nod
+        primul->info=informatie;//pun informatia in nod
+        primul->next=NULL;//fac legatura catre NULL
+        ultimul=primul;//lista are un singur element, deci primul este si ultimul.
     }
     else
     {
         nod *aux;
-        aux=new nod;
-        aux->info=informatie;
-        aux->next=primul;
-        primul=aux;
+        aux=new nod;//aloc memorie nodului nou
+        aux->info=informatie;//pun informatia in nod
+        aux->next=primul;//fac legatura catre primul nod
+        primul=aux;//actualizez potizia primului nod
     }
 }
 
@@ -120,24 +120,24 @@ void adaugare_pe_pozitie_data()
     else
     {
         nod *aux, *curent;
-        curent=primul;
+        curent=primul;//pozitionez nodul curent pe primul element al listei
         int i=1, ok=0;
-        while(curent)
+        while(curent)//atat timp cat mai exista elemente in lista
         {
-            if(i==pozitie-1)
+            if(i==pozitie-1)//daca am ajuns la pozitia anterioara celei care ma intereseaza
             {
                 cout<<"i="<<i;
-                aux=new nod;
-                aux->info=informatie;
-                aux->next=curent->next;
-                curent->next=aux;
-                ok=1;
+                aux=new nod;//aloc spatiu de memorie noului nod
+                aux->info=informatie;//pun informatia in nod
+                aux->next=curent->next;//fac legatura catre nodul urmator
+                curent->next=aux;//fac legatura de la nodul curent la nodul nou adaugat
+                ok=1;//marchez faptul ca am adaugat nodul pe pozitia ceruta
                 break;
             }
             else
             {
-                i++;
-                curent=curent->next;
+                i++;//incrementez pozitia curenta
+                curent=curent->next;//trec la nodul urmator
             }
         }
         if(ok==0)
