@@ -77,11 +77,70 @@ void afisare_lista_invers()
     }
 }
 
+void adaugare_la_sfarsit()
+{
+    int informatie;
+    cout<<"\n ----------\n";
+    cout<<"adaugare la sfarsitul listei\n\n Ce informatie doriti sa adaugati la sfarsit?";
+    cin>>informatie;//citesc informatia pe care o sa o adaug la sfarsit
+    if(primul==NULL)//daca lista este vida
+    {
+        primul=new nod;//aloc memorie pentru primul nod
+        primul->info=informatie;//pun informatia in nod
+        primul->next=NULL;//fac legatura catre NULL
+        primul->prev=NULL;
+        ultimul=primul;//lista are un singur element, deci primul este si ultimul.
+    }
+    else
+    {
+        nod *aux;
+        aux=new nod;
+        aux->info=informatie;
+        aux->next=NULL;
+        aux->prev=ultimul;
+        ultimul->next=aux;
+    }
+}
+
+void adaugare_la_inceput()
+{
+    int informatie;
+    cout<<"\n --------\n";
+    cout<<"adaugare la inceputul listei\n\n Ce informatie doriti sa adaugati la inceput?";
+    cin>>informatie;
+    if(primul==NULL)//daca lista este vida
+    {
+        primul=new nod;//aloc memorie pentru primul nod
+        primul->info=informatie;//pun informatia in nod
+        primul->next=NULL;//fac legatura catre NULL
+        primul->prev=NULL;
+        ultimul=primul;//lista are un singur element, deci primul este si ultimul.
+    }
+    else
+    {
+        nod *aux;
+        aux=new nod;//aloc memorie nodului nou
+        aux->info=informatie;//pun informatia in nod
+        aux->next=primul;//fac legatura catre primul nod
+        aux->prev=NULL;
+        primul=aux;//actualizez potizia primului nod
+    }
+}
+
 int main()
 {
     int n;
     creare_lista();
     afisare_lista();
+    cout<<endl;
     afisare_lista_invers();
+    cout<<endl;
+    adaugare_la_sfarsit();
+    cout<<"\n\n dupa adaugare la sfarsit lista devine\n";
+    afisare_lista();
+    cout<<"\n";
+    adaugare_la_inceput();
+    cout<<"\n\n dupa adaugare la inceput lista devine\n";
+    afisare_lista();
     return 0;
 }
