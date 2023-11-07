@@ -153,7 +153,9 @@ void adaugare_pe_pozitie_data()
                 aux=new nod;//aloc spatiu de memorie noului nod
                 aux->info=informatie;//pun informatia in nod
                 aux->next=curent->next;//fac legatura catre nodul urmator
+                curent->next->prev=aux;//fac legatura catre nodul anterior
                 curent->next=aux;//fac legatura de la nodul curent la nodul nou adaugat
+                aux->prev=next;
                 ok=1;//marchez faptul ca am adaugat nodul pe pozitia ceruta
                 break;
             }
