@@ -63,7 +63,7 @@ void afisare_lista()
 void afisare_lista_invers()
 {
     nod *a;
-    a=ultimul;//ma plasez pe primul nod al listei
+    a=ultimul;//ma plasez pe ultimul nod al listei
     if(a==NULL)
         cout<<"lista este vida";
     else
