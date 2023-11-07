@@ -72,7 +72,7 @@ void afisare_lista_invers()
         while (a)//atat timp cat nu am ajuns la NULL
         {
             cout<<a->info<<" ";//afisez informatia din nodul curent
-            a=a->prev;//trec la urmatorul nod
+            a=a->prev;//trec la nodul anterior
         }
     }
 }
