@@ -67,6 +67,43 @@ void afisare_stiva(nod *a)
         }
     }
 }
+void par(nod *a)
+{
+    a=l;
+    if(a==NULL)
+        cout<<"lista este vida";
+    else
+    {
+        cout<<"\n Elementele pare din lista sunt:";
+        while (a)
+        {
+            if(a->info%2==0)
+            {
+                cout<<a->info<<" ";
+            }
+            a=a->next;
+        }
+    }
+}
+void div5(nod *a)
+{   int s;
+    s=0;
+    a=l;
+    if(a==NULL)
+        cout<<"lista este vida";
+    else
+    {
+        cout<<"\n Suma elementelor divizibile cu 5 este:";
+        while (a)
+        {
+            if(a->info%5==0)
+            {   s=s+a->info;
+            }
+            a=a->next;
+        }
+        cout<<s;
+    }
+}
 int main()
 {
     int n;
@@ -77,6 +114,8 @@ int main()
     l=push(100,l);
     l=push(500,l);
     afisare_stiva(l);
+        par(l);
+    div5(l);
     l=pop(l);
     afisare_stiva(l);
     while(l)
