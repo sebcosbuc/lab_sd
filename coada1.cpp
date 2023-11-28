@@ -48,7 +48,7 @@ nod* stergere(nod *l)
         aux2=l->next;
         cout<<"\n voi sterge nodul care contine "<<aux1->info<<endl;
         delete aux1;
-        delete aux2;
+        return aux2;
     }
     else
     {
@@ -91,5 +91,14 @@ int main()
 {
     creare_coada();
     afisare_coada(l);
+    l=stergere(l);
+    afisare_coada(l);
+    l=inserare(100,l);
+    l=inserare(500,l);
+    afisare_coada(l);
+    l=stergere(l);
+    afisare_coada(l);
+    while(l);
+        l=stergere(l);
     return 0;
 }
